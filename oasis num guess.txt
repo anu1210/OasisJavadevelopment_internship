@@ -1,0 +1,37 @@
+import java.util.Scanner;
+public class NumberGuessingGame
+{
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        int num=1+(int)(100*Math.random());
+        int trials=5;
+        System.out.println("WELCOME!\n");
+        System.out.println("A number within range 1 to 100 is choosen and you have to guess the number in 5 trials.\n");
+        int i;
+        for(i=0;i<trials;i++)
+        {
+            System.out.println("Guess the number within range 1 to 100.\n");
+            int guessnum=sc.nextInt();
+            if(num==guessnum)
+            {
+                System.out.println("Great!You guessed the number right.");
+                break;
+            }
+            else if(num>guessnum && i!=trials-1)
+            {
+                System.out.println("Number is greater than you guessed.");
+            }
+            else if(num<guessnum && i!=trials-1)
+            {
+                System.out.println("Number is lesser than you guessed.\n");
+            }
+            
+        }
+        if(i==trials)
+        {
+            System.out.println("Better Luck Next Time!");
+            System.out.println("The number was "+num);
+        }
+    }
+}
